@@ -11,13 +11,13 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "xViz_Licence9116136297706743.json",
+      "name": "Solar",
       "reportVersionAtImport": {
         "visual": "2.1.0",
         "report": "2.1.0",
         "page": "2.0.0"
       },
-      "type": "RegisteredResources"
+      "type": "SharedResources"
     }
   },
   "objects": {
@@ -57,16 +57,10 @@
           "name": "CY24SU10",
           "path": "BaseThemes/CY24SU10.json",
           "type": "BaseTheme"
-        }
-      ]
-    },
-    {
-      "name": "RegisteredResources",
-      "type": "RegisteredResources",
-      "items": [
+        },
         {
-          "name": "xViz_Licence9116136297706743.json",
-          "path": "xViz_Licence9116136297706743.json",
+          "name": "Solar",
+          "path": "BuiltInThemes/Solar.json",
           "type": "CustomTheme"
         }
       ]
