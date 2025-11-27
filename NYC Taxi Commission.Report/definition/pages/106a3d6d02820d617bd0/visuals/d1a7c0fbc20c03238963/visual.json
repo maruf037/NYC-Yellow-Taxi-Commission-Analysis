@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "c2ba14af602301a3012a",
+  "name": "d1a7c0fbc20c03238963",
   "position": {
-    "x": 10.616113744075829,
+    "x": 826.5402843601895,
     "y": 229.00473933649289,
-    "z": 5,
+    "z": 6,
     "height": 341.23222748815164,
-    "width": 348.8151658767772,
-    "tabOrder": 5
+    "width": 435.260663507109,
+    "tabOrder": 6
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Weekday"
                 }
               },
-              "queryRef": "DimDate.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "DimDate.Weekday",
+              "nativeQueryRef": "Weekday",
               "active": true
             }
           ]
@@ -47,6 +47,20 @@
               },
               "queryRef": "_Measures.Trip Count",
               "nativeQueryRef": "Trip Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Revenue"
+                }
+              },
+              "queryRef": "_Measures.Total Revenue",
+              "nativeQueryRef": "Total Revenue"
             }
           ]
         }
@@ -55,16 +69,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "DimDate"
+                    "Entity": "_Measures"
                   }
                 },
-                "Property": "Date"
+                "Property": "Trip Count"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ],
         "isDefaultSort": true

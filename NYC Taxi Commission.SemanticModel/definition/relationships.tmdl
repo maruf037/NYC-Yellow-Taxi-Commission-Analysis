@@ -26,11 +26,11 @@ relationship 1153df9c-9090-9abc-fdc6-4f4d8c22a722
 	fromColumn: Fact_yellow_tripdata_2025-09.RatecodeID
 	toColumn: DimRateCode.RatecodeID
 
-relationship 1504d12e-7b37-c2a8-8662-4444421821b9
-	fromColumn: Fact_yellow_tripdata_2025-09.payment_type
-	toColumn: DimPaymentType.'Payment Method'
-
 relationship 04ba5ad3-4f32-daf9-eff3-7cd8e8713f69
 	fromColumn: Fact_yellow_tripdata_2025-09.PickupDate
 	toColumn: DimDate.Date
+
+relationship 2e7b0f59-320e-1256-fa42-0af821dc018e
+	fromColumn: Fact_yellow_tripdata_2025-09.payment_type
+	toColumn: DimPaymentType.payment_type
 

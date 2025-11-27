@@ -1,0 +1,99 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "aac78beb50238004d40c",
+  "position": {
+    "x": 10.616113744075829,
+    "y": 583.88625592417054,
+    "z": 8,
+    "height": 136.49289099526067,
+    "width": 644.54976303317528,
+    "tabOrder": 8
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimVendor"
+                    }
+                  },
+                  "Property": "VendorName"
+                }
+              },
+              "queryRef": "DimVendor.VendorName",
+              "nativeQueryRef": "VendorName",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Trip Count"
+                }
+              },
+              "queryRef": "_Measures.Trip Count",
+              "nativeQueryRef": "Trip Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Revenue"
+                }
+              },
+              "queryRef": "_Measures.Total Revenue",
+              "nativeQueryRef": "Total Revenue"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Fare per Trip"
+                }
+              },
+              "queryRef": "_Measures.Avg Fare per Trip",
+              "nativeQueryRef": "Avg Fare per Trip"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Trip Distance"
+                }
+              },
+              "queryRef": "_Measures.Avg Trip Distance",
+              "nativeQueryRef": "Avg Trip Distance"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

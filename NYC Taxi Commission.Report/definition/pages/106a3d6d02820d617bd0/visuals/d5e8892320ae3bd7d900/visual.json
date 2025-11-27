@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "c2ba14af602301a3012a",
+  "name": "d5e8892320ae3bd7d900",
   "position": {
-    "x": 10.616113744075829,
+    "x": 394.31279620853076,
     "y": 229.00473933649289,
-    "z": 5,
+    "z": 7,
     "height": 341.23222748815164,
-    "width": 348.8151658767772,
-    "tabOrder": 5
+    "width": 420.09478672985779,
+    "tabOrder": 7
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "donutChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimDate"
+                      "Entity": "DimPaymentType"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Payment Method"
                 }
               },
-              "queryRef": "DimDate.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "DimPaymentType.Payment Method",
+              "nativeQueryRef": "Payment Method",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Trip Count"
+                  "Property": "Total Revenue"
                 }
               },
-              "queryRef": "_Measures.Trip Count",
-              "nativeQueryRef": "Trip Count"
+              "queryRef": "_Measures.Total Revenue",
+              "nativeQueryRef": "Total Revenue"
             }
           ]
         }
@@ -55,16 +55,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "DimDate"
+                    "Entity": "_Measures"
                   }
                 },
-                "Property": "Date"
+                "Property": "Total Revenue"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ],
         "isDefaultSort": true
