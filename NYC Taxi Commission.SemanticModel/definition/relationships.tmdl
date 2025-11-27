@@ -1,0 +1,36 @@
+relationship 25b2217b-4c53-4275-8b4e-e77f07f87f13
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Fact_yellow_tripdata_2025-09.tpep_pickup_datetime
+	toColumn: LocalDateTable_f3eb5040-2a88-4736-a880-f5d309b30d21.Date
+
+relationship 50f1201a-14ec-4b31-b4d5-b21c0c251ac5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Fact_yellow_tripdata_2025-09.tpep_dropoff_datetime
+	toColumn: LocalDateTable_e869debd-5793-4a91-a97e-acdecd0e10b5.Date
+
+relationship 568ceb3d-335e-f71c-ef65-b6181d489eca
+	fromColumn: Fact_yellow_tripdata_2025-09.PULocationID
+	toColumn: DimLocation.LocationID
+
+relationship 59a8557d-241d-696e-4520-17aeea067aa6
+	isActive: false
+	fromColumn: Fact_yellow_tripdata_2025-09.DOLocationID
+	toColumn: DimLocation.LocationID
+
+relationship 771e4028-a9ff-bf12-fef5-cac8bf0930a6
+	toCardinality: many
+	fromColumn: Fact_yellow_tripdata_2025-09.VendorID
+	toColumn: DimVendor.VendorID
+
+relationship 1153df9c-9090-9abc-fdc6-4f4d8c22a722
+	fromColumn: Fact_yellow_tripdata_2025-09.RatecodeID
+	toColumn: DimRateCode.RatecodeID
+
+relationship 1504d12e-7b37-c2a8-8662-4444421821b9
+	fromColumn: Fact_yellow_tripdata_2025-09.payment_type
+	toColumn: DimPaymentType.'Payment Method'
+
+relationship 04ba5ad3-4f32-daf9-eff3-7cd8e8713f69
+	fromColumn: Fact_yellow_tripdata_2025-09.PickupDate
+	toColumn: DimDate.Date
+

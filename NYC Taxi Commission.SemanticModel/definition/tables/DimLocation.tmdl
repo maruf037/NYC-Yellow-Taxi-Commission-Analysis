@@ -1,0 +1,52 @@
+table DimLocation
+	lineageTag: 3beaaf31-f665-4637-886c-9332cc34d1a9
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		lineageTag: fcc63dcd-a547-411e-a34e-1b28830d4926
+		summarizeBy: none
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Borough
+		dataType: string
+		lineageTag: 69d638fc-bc2f-4c8b-8b94-226703f4c949
+		summarizeBy: none
+		sourceColumn: Borough
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zone
+		dataType: string
+		lineageTag: e644b7d1-7e36-4bf6-91ec-f47893ea2d68
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_zone
+		dataType: string
+		lineageTag: 19c8ba10-5a2c-499f-af8a-22f5c13da8da
+		summarizeBy: none
+		sourceColumn: service_zone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimLocation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("F:\Power BI Projects\7. NYC Taxi and Limousine Commission Trips (2009–Present)\Asset\taxi_zone_lookup.csv"),[Delimiter=",", Columns=4, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"LocationID", Int64.Type}, {"Borough", type text}, {"Zone", type text}, {"service_zone", type text}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,40 @@
+table DimPaymentType
+	lineageTag: 438cd175-365c-441b-b33e-a8f931d8468d
+
+	column payment_type
+		formatString: 0
+		lineageTag: ec868d0a-8b06-4a06-9792-d2229121d682
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [payment_type]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Method'
+		lineageTag: 1da3a725-1b1c-418c-aa5f-3c08d45f1f96
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Payment Method]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimPaymentType = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "payment_type", INTEGER,
+				    "Payment Method", STRING,
+				    {
+				        { 0, "Flex Fare" },
+				        { 1, "Credit card" },
+				        { 2, "Cash" },
+				        { 3, "No charge" },
+				        { 4, "Dispute" },
+				        { 5, "Unknown" },
+				        { 6, "Voided trip" }
+				    }
+				)
+
+	annotation PBI_Id = 7fb29aed42764088a6383bab417780da
+

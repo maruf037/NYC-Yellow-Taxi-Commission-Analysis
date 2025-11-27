@@ -1,0 +1,32 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-AE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 26/11/2025 2:59:47 PM.
+queryGroup 'Query Errors - 26/11/2025 2:59:47 PM'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Fact_yellow_tripdata_2025-09","Errors in yellow_tripdata_2025-09","DimVendor","DimLocation"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Fact_yellow_tripdata_2025-09
+ref table DateTableTemplate_7e3890ae-b5f3-4a49-afea-471972a3c770
+ref table LocalDateTable_f3eb5040-2a88-4736-a880-f5d309b30d21
+ref table LocalDateTable_e869debd-5793-4a91-a97e-acdecd0e10b5
+ref table DimDate
+ref table DimVendor
+ref table DimRateCode
+ref table DimPaymentType
+ref table DimLocation
+ref table _Measures
+
+ref cultureInfo en-US
+

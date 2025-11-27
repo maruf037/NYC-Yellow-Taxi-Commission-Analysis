@@ -1,0 +1,35 @@
+table DimVendor
+	lineageTag: 720543d1-a7c7-4e7c-ba42-2c62b12ea910
+
+	column VendorID
+		dataType: int64
+		formatString: 0
+		lineageTag: f37540c9-bf95-4150-b470-e743b47ab7fe
+		summarizeBy: none
+		sourceColumn: VendorID
+
+		annotation SummarizationSetBy = Automatic
+
+	column VendorName
+		dataType: string
+		lineageTag: c8e89282-b6d1-4877-93d0-2c11ccbc6668
+		summarizeBy: none
+		sourceColumn: VendorName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimVendor = m
+		mode: import
+		source =
+				let
+				    Source = #"Fact_yellow_tripdata_2025-09",
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"tpep_pickup_datetime", "tpep_dropoff_datetime", "trip_distance", "RatecodeID", "store_and_fwd_flag", "PULocationID", "DOLocationID", "payment_type", "fare_amount", "extra", "mta_tax", "tip_amount", "tolls_amount", "improvement_surcharge", "total_amount", "congestion_surcharge", "Airport_fee", "cbd_congestion_fee", "passenger_count", "trip_duration_min", "avg_speed_mph", "IsValidTrip", "PickupDate", "PickupTime", "PickupHour", "TripID"}),
+				    // Added VendorName Column
+				    #"Added Conditional Column" = Table.AddColumn(#"Removed Columns", "VendorName", each if [VendorID] = 1 then "Creative Mobile Technologies, LLC" else if [VendorID] = 2 then "Curb Mobility, LLC" else if [VendorID] = 6 then "Myle Technologies Inc" else if [VendorID] = 7 then "Helix" else null)
+				in
+				    #"Added Conditional Column"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

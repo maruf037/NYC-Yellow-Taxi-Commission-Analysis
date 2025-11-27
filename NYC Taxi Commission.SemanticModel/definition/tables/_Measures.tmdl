@@ -1,0 +1,45 @@
+table _Measures
+	lineageTag: f9eca89a-ace7-4a3c-9355-449e294bbd20
+
+	measure 'Trip Count' = COUNTROWS('Fact_yellow_tripdata_2025-09')
+		formatString: 0
+		lineageTag: 064fa493-44b8-445e-899c-f7b39797b926
+
+	measure 'Total Revenue' = SUM('Fact_yellow_tripdata_2025-09'[total_amount])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c83e965a-f527-478e-a4d3-058216ce3819
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Avg Fare per Trip' = DIVIDE([Total Revenue], [Trip Count])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f0555dff-9fd6-4d7c-85bd-d59e1c399dec
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Avg Trip Distance' = AVERAGE('Fact_yellow_tripdata_2025-09'[trip_distance])
+		formatString: 0
+		lineageTag: 868b0fe4-4cdc-4a17-a827-67a768195cb9
+
+	measure 'Avg Trip Duration' = AVERAGE('Fact_yellow_tripdata_2025-09'[trip_duration_min])
+		formatString: 0
+		lineageTag: 52eca9d5-5852-477b-b0e2-a11f78f0ee6f
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: e3752621-8704-4b7a-b43e-5543971451c8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 1813d0b3eae84bfe81563c6d1b4735c4
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

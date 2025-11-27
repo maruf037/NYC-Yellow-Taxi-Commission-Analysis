@@ -1,0 +1,98 @@
+table DimDate
+	lineageTag: ac25d927-bd34-45d5-91a4-4154d87aa45d
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 9d6f8602-cd13-4c16-99f0-707df198e4e8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Year
+		formatString: 0
+		lineageTag: bfac3f79-997f-475e-ad3a-7859dda212f2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: 91c1d861-19bc-4ea0-b939-95b75252dd62
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		lineageTag: 2d8f5c09-6c2d-4d1f-ba53-5ad5d34683a8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		formatString: 0
+		lineageTag: 5b088064-bdec-4ffc-b02d-196cb3154217
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Day]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekday
+		lineageTag: 8c9893fb-add8-4f12-9c6f-37cf2a073f44
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Weekday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Month
+		lineageTag: df4f2bcd-e633-43fe-9421-928b7e7ed6d5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year-Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 47546e74-fb91-484f-8a41-e7569bb4ab42
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsWeekend]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = calculated
+		mode: import
+		source =
+				ADDCOLUMNS(
+				    CALENDAR(
+				        DATE(2025, 09, 01),
+				        DATE(2025, 09, 30)
+				    ),
+				    "Year", YEAR ( [Date] ),
+				    "Month Number", MONTH ( [Date] ),
+				    "Month Name", FORMAT ( [Date], "MMM" ),
+				    "Year-Month", FORMAT ( [Date], "YYYY-MM" ),
+				    "Day", DAY ( [Date] ),
+				    "Weekday", FORMAT ( [Date], "DDD" ),
+				    "IsWeekend", IF(
+				        WEEKDAY([Date], 2) > 5, TRUE(),
+				        FALSE()
+				    )
+				)
+
+	annotation PBI_Id = 09c4c73a3d8c4649b09e98e65314dbab
+

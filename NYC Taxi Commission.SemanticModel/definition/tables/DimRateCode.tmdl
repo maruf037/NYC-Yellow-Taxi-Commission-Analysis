@@ -1,0 +1,41 @@
+table DimRateCode
+	lineageTag: 1cfeddbb-7692-4045-8612-a644699eb8c1
+
+	column RatecodeID
+		formatString: 0
+		lineageTag: 1e891366-8503-472f-807b-a19772980d70
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [RatecodeID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column RateDescription
+		lineageTag: d0f6c8a4-3e95-476d-aa15-cb7f0f03d8b8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [RateDescription]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimRateCode = calculated
+		mode: import
+		source = ```
+				
+				    DATATABLE(
+				        "RatecodeID", INTEGER,
+				        "RateDescription", STRING,
+				        {
+				            {1, "Standard Rate"},
+				            {2, "JFK"},
+				            {3, "Newark"},
+				            {4, "Nassau or Westchester"},
+				            {5, "Negotiated Fare"},
+				            {6, "Group ride"},
+				            {99, "Unknown/Null"}
+				        }
+				    )
+				```
+
+	annotation PBI_Id = 5434dd57377c435598765f988b9f86d3
+

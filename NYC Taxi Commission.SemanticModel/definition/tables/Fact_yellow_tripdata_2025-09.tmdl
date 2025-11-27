@@ -1,0 +1,375 @@
+table Fact_yellow_tripdata_2025-09
+	lineageTag: 8214695f-c4d0-45ed-b097-926510d3e91c
+
+	column VendorID
+		dataType: int64
+		formatString: 0
+		lineageTag: 78061bc3-ff7f-4211-9c74-83bcbc380c0d
+		summarizeBy: none
+		sourceColumn: VendorID
+
+		annotation SummarizationSetBy = Automatic
+
+	column tpep_pickup_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1cdfcaf7-43af-4d5f-ae70-8be47b27ebd3
+		summarizeBy: none
+		sourceColumn: tpep_pickup_datetime
+
+		variation Variation
+			isDefault
+			relationship: 25b2217b-4c53-4275-8b4e-e77f07f87f13
+			defaultHierarchy: LocalDateTable_f3eb5040-2a88-4736-a880-f5d309b30d21.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column tpep_dropoff_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 21279e79-17b4-4b98-b08a-6bac1e84ce06
+		summarizeBy: none
+		sourceColumn: tpep_dropoff_datetime
+
+		variation Variation
+			isDefault
+			relationship: 50f1201a-14ec-4b31-b4d5-b21c0c251ac5
+			defaultHierarchy: LocalDateTable_e869debd-5793-4a91-a97e-acdecd0e10b5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column trip_distance
+		dataType: double
+		lineageTag: 6dee62a8-438f-423a-80fa-29f628fb5ab5
+		summarizeBy: sum
+		sourceColumn: trip_distance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RatecodeID
+		dataType: int64
+		formatString: 0
+		lineageTag: c4d3ae54-8145-4bd4-9ddc-8ef11f9b7773
+		summarizeBy: none
+		sourceColumn: RatecodeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_and_fwd_flag
+		dataType: string
+		lineageTag: 3065d7d8-e952-48b7-9b2f-19ab09a92aa0
+		summarizeBy: none
+		sourceColumn: store_and_fwd_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column PULocationID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f6df03f-ac9e-4943-8972-78907cfaba15
+		summarizeBy: none
+		sourceColumn: PULocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOLocationID
+		dataType: int64
+		formatString: 0
+		lineageTag: e90e94f7-00e5-49a3-838b-19ee0b0ad993
+		summarizeBy: count
+		sourceColumn: DOLocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ffb47af-bddc-422f-84fd-6d9c715b019f
+		summarizeBy: none
+		sourceColumn: payment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column fare_amount
+		dataType: double
+		lineageTag: 6faa599a-03e6-42d6-a106-4bcea3089e6c
+		summarizeBy: sum
+		sourceColumn: fare_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column extra
+		dataType: double
+		lineageTag: 3d3c3e00-26b8-41b7-90de-2238981b7c38
+		summarizeBy: sum
+		sourceColumn: extra
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mta_tax
+		dataType: double
+		lineageTag: cc0b9a57-0348-41d9-bf9f-4295b416ddfe
+		summarizeBy: sum
+		sourceColumn: mta_tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tip_amount
+		dataType: double
+		lineageTag: 2afa27eb-07b9-48f7-aa63-ee2c9e30e433
+		summarizeBy: sum
+		sourceColumn: tip_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tolls_amount
+		dataType: double
+		lineageTag: 84ce9c35-bc3d-4f63-97ca-350271e6ab3b
+		summarizeBy: sum
+		sourceColumn: tolls_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column improvement_surcharge
+		dataType: double
+		lineageTag: 5070a9ca-2238-4f0a-b7b2-6630aaf84b93
+		summarizeBy: sum
+		sourceColumn: improvement_surcharge
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_amount
+		dataType: double
+		lineageTag: 41dff900-076b-455d-b4d7-b1b733b3f2cb
+		summarizeBy: sum
+		sourceColumn: total_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column congestion_surcharge
+		dataType: double
+		lineageTag: 4f2412ee-5faa-4d8a-ad06-ffebcd552154
+		summarizeBy: sum
+		sourceColumn: congestion_surcharge
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Airport_fee
+		dataType: double
+		lineageTag: 17cbea79-70d4-42d7-b9c0-58ce1210a850
+		summarizeBy: sum
+		sourceColumn: Airport_fee
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cbd_congestion_fee
+		dataType: double
+		lineageTag: a1b5a4b4-be16-4395-b4ba-449d02d00afa
+		summarizeBy: sum
+		sourceColumn: cbd_congestion_fee
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column passenger_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f95f106-f6bf-4191-ab1c-5abc0fb6abf7
+		summarizeBy: sum
+		sourceColumn: passenger_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column trip_duration_min
+		dataType: double
+		lineageTag: 83ae4dfe-2fc5-4846-9313-c0a7b2823adf
+		summarizeBy: sum
+		sourceColumn: trip_duration_min
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_speed_mph
+		dataType: string
+		lineageTag: f69e9221-5615-4997-8304-cf7a95b4ec2b
+		summarizeBy: none
+		sourceColumn: avg_speed_mph
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsValidTrip
+		dataType: string
+		lineageTag: 89e05880-c56c-42fa-90c1-32c390bf1a35
+		summarizeBy: none
+		sourceColumn: IsValidTrip
+
+		annotation SummarizationSetBy = Automatic
+
+	column PickupDate
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 6d3d983c-f019-48d2-bdc3-af15fb9097ac
+		summarizeBy: none
+		sourceColumn: PickupDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PickupTime
+		dataType: string
+		lineageTag: a43274a0-e353-4727-ac56-0983afe6f476
+		summarizeBy: none
+		sourceColumn: PickupTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column PickupHour
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: b2b69a88-7d1c-49b4-b1bb-d442ce1253e1
+		summarizeBy: none
+		sourceColumn: PickupHour
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column TripID
+		dataType: int64
+		formatString: 0
+		lineageTag: 01d316e3-5dc2-4753-9332-e0fd9bf66841
+		summarizeBy: count
+		sourceColumn: TripID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_yellow_tripdata_2025-09 = m
+		mode: import
+		source = ```
+				let
+				    Source = Parquet.Document(File.Contents("F:\Power BI Projects\7. NYC Taxi and Limousine Commission Trips (2009–Present)\Asset\yellow_tripdata_2025-09.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),
+				    // Define and apply consistent schema
+				    ChangedTypes = Table.TransformColumnTypes(Source, {
+				        {"VendorID", Int64.Type},
+				        {"tpep_pickup_datetime", type datetime},
+				        {"tpep_dropoff_datetime", type datetime},
+				        {"passenger_count", Int64.Type},
+				        {"trip_distance", type number},
+				        {"RatecodeID", Int64.Type},
+				        {"store_and_fwd_flag", type text},
+				        {"PULocationID", Int64.Type},
+				        {"DOLocationID", Int64.Type},
+				        {"payment_type", Int64.Type},
+				        {"fare_amount", type number},
+				        {"extra", type number},
+				        {"mta_tax", type number},
+				        {"tip_amount", type number},
+				        {"tolls_amount", type number},
+				        {"improvement_surcharge", type number},
+				        {"total_amount", type number},
+				        {"congestion_surcharge", type number},
+				        {"Airport_fee", type number},
+				        {"cbd_congestion_fee", type number}
+				    }),
+				
+				    // Remove exact duplicate rows
+				    RemovedDuplicates = Table.Distinct(ChangedTypes),
+				    FilteredPickupDates = Table.SelectRows(RemovedDuplicates, each [tpep_pickup_datetime] >= #datetime(2025, 9, 1, 0, 0, 0) and [tpep_pickup_datetime] <= #datetime(2025, 9, 30, 0, 0, 0)),
+				    FilteredDropoffDates = Table.SelectRows(FilteredPickupDates, each [tpep_dropoff_datetime] >= #datetime(2025, 9, 1, 0, 0, 0) and [tpep_dropoff_datetime] <= #datetime(2025, 9, 30, 0, 0, 0)),
+				
+				        // Remove trips where dropoff is before or equal to pickup
+				    FilteredLogicalDates = Table.SelectRows(FilteredDropoffDates, 
+				        each [tpep_dropoff_datetime] > [tpep_pickup_datetime]
+				    ),
+				
+				    // Filter out invalid distances (greater than 0 and less than or equla to 100)
+				    #"FilteredRows" = Table.SelectRows(FilteredLogicalDates, each [trip_distance] > 0 and [trip_distance] <= 100),
+				
+				    // Replace 0 passengers with 1 (likely data entry error)
+				    ReplacedZeroPassengers = Table.ReplaceValue(
+				        FilteredRows,
+				        0,
+				        1,
+				        Replacer.ReplaceValue,
+				        {"passenger_count"}
+				    ),
+				    
+				    // Cap passenger count at 6 (yellow cab maximum)
+				    AddedCleanedPassengerCount = Table.AddColumn(
+				        ReplacedZeroPassengers, 
+				        "passenger_count_cleaned", 
+				        each if [passenger_count] > 6 then 6 else [passenger_count],
+				        Int64.Type
+				    ),
+				    
+				    // Remove original and rename
+				    RemovedOldPassengerCount = Table.RemoveColumns(AddedCleanedPassengerCount, {"passenger_count"}),
+				    RenamedPassengerCount = Table.RenameColumns(RemovedOldPassengerCount, {{"passenger_count_cleaned", "passenger_count"}}),
+				
+				    // Remove trips with negative or zero total amounts (except legitimate no-charge trips)
+				    FilteredAmounts = Table.SelectRows(RenamedPassengerCount,
+				        each [total_amount] > 0 
+				        and [fare_amount] >= 0),
+				
+				    // Added custom column trip_duration_min    
+				    #"Added Custom" = Table.AddColumn(FilteredAmounts, "trip_duration_min", each Duration.TotalMinutes(
+				    [tpep_dropoff_datetime] - [tpep_pickup_datetime]
+				  )),
+				    // Added avg_speed_mph column
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "avg_speed_mph", each if [trip_duration_min] > 0 
+				  then ([trip_distance] * 60) / [trip_duration_min]
+				  else null),
+				    // Added IsValidTrip column for flag
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "IsValidTrip", each if [trip_distance] <= 0 
+				     or [trip_duration_min] <= 0 
+				     or [total_amount] < 0 
+				  then false 
+				  else true),
+				    // Added PickupDate column
+				    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "PickupDate", each Date.From([tpep_pickup_datetime])),
+				    // Added PickupTime column
+				    #"Added Custom4" = Table.AddColumn(#"Added Custom3", "PickupTime", each Time.From([tpep_pickup_datetime])),
+				    // Added PickupHour column
+				    #"Added Custom5" = Table.AddColumn(#"Added Custom4", "PickupHour", each Time.Hour([tpep_pickup_datetime])),
+				    // Changed PickupHour type ot Time
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom5",{{"PickupHour", type time}}),
+				    // Added Index column from 1
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Added Index",{"Index", "VendorID", "tpep_pickup_datetime", "tpep_dropoff_datetime", "trip_distance", "RatecodeID", "store_and_fwd_flag", "PULocationID", "DOLocationID", "payment_type", "fare_amount", "extra", "mta_tax", "tip_amount", "tolls_amount", "improvement_surcharge", "total_amount", "congestion_surcharge", "Airport_fee", "cbd_congestion_fee", "passenger_count", "trip_duration_min", "avg_speed_mph", "IsValidTrip", "PickupDate", "PickupTime", "PickupHour"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"Index", "TripID"}}),
+				    // Changed Type of trip_duration_min to duration
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"trip_duration_min", type duration}, {"PickupDate", type date}})
+				in
+				    #"Changed Type1"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
